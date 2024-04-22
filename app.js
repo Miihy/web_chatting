@@ -4,6 +4,7 @@ const app = express();
 const path = require("path");
 const server = http.createServer(app);
 const socketIO = require("socket.io");
+const moment = require("moment");
 
 //프로젝트 폴더경로가 출력됨
 //console.log(__dirname);
@@ -20,8 +21,12 @@ io.on("connection",(socket) => {
 
         //Object 형식으로 data를 받음
         //console.log(data);
-        
-        io.emit("chatting", data);
+        const { name, msg } = data;
+        io.emit("chatting", {
+            name,
+            msg,
+            time: moment(new Date()).format("h:ss A")
+        });
     });
 });
 

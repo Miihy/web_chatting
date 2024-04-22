@@ -82,7 +82,7 @@ html, body {
     font-size: 10px;
     margin-bottom: 0.3rem;
 }
-.profile .image{
+.profile img{
     border-radius: 50%;
     object-fit: cover;
     width: 50px;
